@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'login.dart'; // 로그인 화면을 정의한 파일
 import 'register.dart'; // 회원가입 화면을 정의한 파일
 import 'firebase_options.dart';
+import 'today_tasks_page.dart'; // 기본화면
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+      home:TodayTasksPage(userEmail: 'user_email@example.com'), // 이 아래의 주석은 기존의 기본화면
+      /*Scaffold(
         body: SingleChildScrollView(  // Column을 SingleChildScrollView로 감싸서 스크롤 가능하게 설정
           child: Center(
             child: Column(
@@ -68,7 +71,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      ),*/
     );
   }
 }
@@ -76,5 +79,9 @@ class MyApp extends StatelessWidget {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Firebase 초기화를 위한 필수 코드
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform); // Firebase 초기화
-  runApp(MyApp());
+  runApp(
+    ProviderScope( // Riverpod의 상태 관리 초기화
+      child: MyApp(),
+    ),
+  );
 }

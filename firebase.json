@@ -1,0 +1,17 @@
+{
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "gomo-test-5d68d",
+          "configurations": {
+            "ios": "1:953543068067:ios:02404bb9ef481f37973216",
+            "macos": "1:953543068067:ios:02404bb9ef481f37973216",
+            "web": "1:953543068067:web:08fe5dc2b39d92a3973216",
+            "windows": "1:953543068067:web:986ccad14144a99e973216"
+          }
+        }
+      }
+    }
+  }
+}
